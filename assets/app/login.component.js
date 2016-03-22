@@ -18,6 +18,7 @@ System.register(['angular2/core'], function(exports_1) {
         execute: function() {
             LoginComponent = (function () {
                 function LoginComponent() {
+                    this.title = 'CallCenter';
                 }
                 LoginComponent = __decorate([
                     core_1.Component({
