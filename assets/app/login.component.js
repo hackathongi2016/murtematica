@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', './directives/MaterialDesignLiteUpgradeElement', 'angular2/http', 'rxjs/Rx'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,25 +8,45 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, MaterialDesignLiteUpgradeElement_1, http_1;
     var LoginComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            }],
+            },
+            function (MaterialDesignLiteUpgradeElement_1_1) {
+                MaterialDesignLiteUpgradeElement_1 = MaterialDesignLiteUpgradeElement_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (_1) {}],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent() {
-                    this.title = 'CallCenter';
+                function LoginComponent(http) {
+                    this.http = http;
+                    this.login = function () {
+                        var headers = new http_1.Headers();
+                        headers.append('Content-Type', 'application/json');
+                        this.http.post('login', JSON.stringify({ email: this.email, password: this.password }), { headers: headers })
+                            .map(function (res) { return res.json(); })
+                            .subscribe(function (data) {
+                            null; //no cal fer res
+                        }, function (err) { return console.log(err); }, //exectuar si no OK
+                        function () {
+                            window.location.href = '/dashboard';
+                        });
+                    };
                 }
                 LoginComponent = __decorate([
                     core_1.Component({
                         selector: 'login',
+                        directives: [MaterialDesignLiteUpgradeElement_1.MDL],
                         templateUrl: 'app/html/login.component.html',
                         styleUrls: ['app/style/login.component.css']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], LoginComponent);
                 return LoginComponent;
             })();

@@ -10,6 +10,14 @@
  */
 
 module.exports.bootstrap = function(cb) {
+  //DUMMY INFORMATION!
+  var dummyUser = {
+    email : "test@callcenter.com",
+    password : "1234"
+  };
+
+  User.create(dummyUser).exec(cb);
+
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
