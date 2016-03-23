@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1) {
+System.register(['angular2/core', "./chat/chat.component"], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
         switch (arguments.length) {
@@ -10,30 +10,33 @@ System.register(['angular2/core'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var MDL;
+    var core_1, chat_component_1;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (chat_component_1_1) {
+                chat_component_1 = chat_component_1_1;
             }],
         execute: function() {
-            MDL = (function () {
-                function MDL() {
+            AppComponent = (function () {
+                function AppComponent() {
                 }
-                MDL.prototype.ngAfterViewInit = function () {
-                    componentHandler.upgradeAllRegistered();
-                };
-                MDL = __decorate([
-                    core_1.Directive({
-                        selector: '[mdl]'
+                AppComponent = __decorate([
+                    core_1.Component({
+                        selector: 'my-app',
+                        template: '<h1>My First Angular 2 App</h1>' +
+                            '<chat></chat>',
+                        directives: [chat_component_1.ChatComponent]
                     }), 
                     __metadata('design:paramtypes', [])
-                ], MDL);
-                return MDL;
+                ], AppComponent);
+                return AppComponent;
             })();
-            exports_1("MDL", MDL);
+            exports_1("AppComponent", AppComponent);
         }
     }
 });
-//# sourceMappingURL=MaterialDesignLiteUpgradeElement.js.map
+//# sourceMappingURL=app.component.js.map
