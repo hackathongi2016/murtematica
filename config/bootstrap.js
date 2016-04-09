@@ -16,7 +16,7 @@ module.exports.bootstrap = function(cb) {
     password : "1234"
   };
 
-  User.create(dummyUser).exec(cb);
+  //User.create(dummyUser).exec(cb);
 
 
   // It's very important to trigger this callback method when you are finished
