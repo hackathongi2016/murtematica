@@ -1,2 +1,3 @@
-# search_engine
-Cerca de viatges
+# Mur temàtica
+Mur per xatejar de les temàtiques.
+
