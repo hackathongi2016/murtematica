@@ -3,8 +3,8 @@ $(document).ready(function () {
     var top_name = "ALLOTJAMENT";
     var tra_origin = "GIRONA";
     var tra_destination = "PARIS";
-    //var host = 'http://localhost:1337';
-    var host = 'http://discuss.trabel.me:1337';
+    var host = 'http://localhost:1337';
+    //var host = 'http://discuss.trabel.me:1337';
 
   var url = window.location.href;
   var string1 = url.substring(url.lastIndexOf('/') + 1);
@@ -43,6 +43,7 @@ $(document).ready(function () {
             console.log(data);
             $('#topic-name').text(data.top_name);
             $('#tra_origin_destination').text(data.top_tra_id.tra_origin + " - " + data.top_tra_id.tra_destination);
+            $('#link-out').attr("href", "http://travel.trabel.me/travel/"+data.top_tra_id.tra_id+'?user_id='+user_id);
             $(data.wallComments).each(function (idx, itm) { //list msg
 
               //AJAX NOM OF CLIENT
