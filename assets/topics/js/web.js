@@ -3,8 +3,8 @@ $(document).ready(function () {
     var top_name = "ALLOTJAMENT";
     var tra_origin = "GIRONA";
     var tra_destination = "PARIS";
-    var host = 'http://localhost:1337';
-    //var host = 'http://discuss.trabel.me:1337';
+    //var host = 'http://localhost:1337';
+    var host = 'http://discuss.trabel.me:1337';
 
   var url = window.location.href;
   var string1 = url.substring(url.lastIndexOf('/') + 1);
