@@ -89,7 +89,7 @@ $(document).ready(function () {
               console.log("TRAVEL");
               console.log(data);
               $(data.topics).each(function (idx, itm) {
-                $('#topic-list').append('<li><a href="http://discuss.trabel.me/topics/' + itm.top_id + '">' + itm.top_name + '</a></li>');
+                $('#topic-list').append('<li><a href="'+host+'/topics/' + itm.top_id + '?user_id='+ user_id +'">' + itm.top_name + '</a></li>');
               });
             },
             error: function (err) {
@@ -122,6 +122,33 @@ $(document).ready(function () {
                     '<h4 class = "list-group-item-heading"> ' + user + '</h4>' +
                     '<p class = "list-group-item-text"> ' + text + ' </p>' +
                     '</div>');
+
+            //AJAX SEND MSG
+          var data = {
+              com_description: text,
+              com_id: new Date().getUTCMilliseconds(),
+              com_top_id: topic_id,
+              com_usr_id: user_id,
+              com_date: new Date().toISOString().slice(0, 19).replace('T', ' ')
+          };
+          $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(data),
+            url: host + "/wallcomment",
+
+            success: function (data) {
+              console.log("SUCCESS POST MSG");
+              console.log(data);
+            },
+            error: function (err) {
+              console.log("ERROR POST MSG");
+              console.log(err);
+            },
+          });
+
+            //END SEND MSG
             $('#inputBoxMessage').modal('hide');
         }
     });
@@ -144,6 +171,31 @@ $(document).ready(function () {
                     '<span class="badge"> ' + punctuation + ' </span>' +
                     text +
                     '</li>');
+
+
+          var data = {
+            pro_id: new Date().getUTCMilliseconds(),
+            pro_title: text,
+            pro_description: "BETA VERSION, desde discuss no inserim descripcio al form",
+            pro_top_id: topic_id,
+            pro_usr_id: user_id
+          };
+          $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(data),
+            url: host + "/topicproposal",
+
+            success: function (data) {
+              console.log("SUCCESS POST PROPOSAL");
+              console.log(data);
+            },
+            error: function (err) {
+              console.log("ERROR POST PROPOSAL");
+              console.log(err);
+            },
+          });
             $('#inputBoxPorposal').modal('hide');
         }
     });

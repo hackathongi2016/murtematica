@@ -14,7 +14,7 @@ module.exports = {
     com_id: {
       type: 'integer',
       primaryKey: true,
-      required: true
+      required: true,
     },
     com_description: {
       type: 'string',
