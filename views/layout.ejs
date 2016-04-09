@@ -6,7 +6,29 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
+    <script>
+      System.config({
+        map: {
+          rxjs: 'node_modules/rxjs' // added this map section
+        },
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          'rxjs': {defaultExtension: 'js'} // and added this to packages
+        }
+      });
+      System.import('/app/main')
+        .then(null, console.error.bind(console));
+    </script>
     <!--
         Stylesheets and Preprocessors
         ==============================
@@ -30,6 +52,7 @@
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <!--STYLES END-->
   </head>
 
