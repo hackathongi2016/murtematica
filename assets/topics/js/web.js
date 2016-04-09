@@ -3,8 +3,8 @@ $(document).ready(function () {
     var top_name = "ALLOTJAMENT";
     var tra_origin = "GIRONA";
     var tra_destination = "PARIS";
-    var host = 'http://localhost:1337';
-    //var host = 'http://discuss.trabel.me:1337';
+    //var host = 'http://localhost:1337';
+    var host = 'http://discuss.trabel.me:1337';
 
   var url = window.location.href;
   var string1 = url.substring(url.lastIndexOf('/') + 1);
@@ -28,6 +28,7 @@ $(document).ready(function () {
     };
     var user_id = getUrlParameter('user_id');
     console.log(user_id);
+
 
     ////////
     //AJAX//
@@ -71,11 +72,32 @@ $(document).ready(function () {
 
 
           $(data.topicProposals).each(function (idx, itm) { //list proposals
-            $('#porposal').append(
-              '<li class="list-group-item">' +
-              '<span class="badge"> ' + 0 + ' </span>' +
-              itm.pro_title +
-              '</li>');
+
+
+            //AJAX VOTES
+
+            var prop = itm.pro_usr_id;
+            $.ajax({
+              type: "GET",
+              dataType: "json",
+              url: "/topicproposal/" + prop,
+              success: function (data3) {
+                console.log("VOTES");
+                console.log(data3);
+                $('#porposal').append(
+                  '<li class="list-group-item">' +
+                  '<span class="badge"> ' + data3.votes.length + ' </span>' +
+                  itm.pro_title +
+                  '</li>');
+              },
+              error: function (err) {
+                console.log(err);
+              }
+            });
+
+
+            //END AJAX VOTES
+
           });
           var travel_id = data.top_tra_id.tra_id;
 
@@ -117,13 +139,30 @@ $(document).ready(function () {
         var user = "Thyplock";
         var text = $('#messageAdd').val();
         if (text !== '') {
-            $('#wall').append(
-                    '<div class="list-group-item missatge">' +
-                    '<h4 class = "list-group-item-heading"> ' + user + '</h4>' +
-                    '<p class = "list-group-item-text"> ' + text + ' </p>' +
-                    '</div>');
+
+          $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/user/" + user_id,
+            success: function (data3) {
+              console.log("USER");
+              console.log(data3);
+              $('#wall').append(
+                '<div class="list-group-item missatge">' +
+                '<h4 class = "list-group-item-heading"> ' + data3.usr_nickname + '</h4>' +
+                '<p class = "list-group-item-text"> ' + text + ' </p>' +
+                '</div>');
+            },
+            error: function (err) {
+              console.log(err);
+            }
+          });
+
+
+
 
             //AJAX SEND MSG
+
           var data = {
               com_description: text,
               com_id: new Date().getUTCMilliseconds(),
