@@ -43,7 +43,7 @@ $(document).ready(function () {
             console.log(data);
             $('#topic-name').text(data.top_name);
             $('#tra_origin_destination').text(data.top_tra_id.tra_origin + " - " + data.top_tra_id.tra_destination);
-            $('#link-out').attr("href", "http://travel.trabel.me/travel/"+data.top_tra_id.tra_id+'?user_id='+user_id);
+            $('#link-out').attr("href", "http://travel.trabel.me/travels/"+data.top_tra_id.tra_id+'?user_id='+user_id);
             $(data.wallComments).each(function (idx, itm) { //list msg
 
               //AJAX NOM OF CLIENT
