@@ -34,7 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'GET /topics/:id' : {
+    controller: 'TopicController',
+    action: 'index'
+  },
 
   /***************************************************************************
   *                                                                          *

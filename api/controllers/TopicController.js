@@ -6,6 +6,13 @@
  */
 
 module.exports = {
-	
+
+  index: function(req,res){
+    //DataBinding de la vista
+    return res.view('topic/index.ejs',{
+      'data': {test: 'HOLAAAAAA'}
+    });
+  }
+
 };
 
