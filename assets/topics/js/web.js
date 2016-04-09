@@ -3,8 +3,8 @@ $(document).ready(function () {
     var top_name = "ALLOTJAMENT";
     var tra_origin = "GIRONA";
     var tra_destination = "PARIS";
-    //var host = 'http://localhost:1337';
-    var host = 'http://discuss.trabel.me:1337';
+    var host = 'http://localhost:1337';
+    //var host = 'http://discuss.trabel.me:1337';
 
   var url = window.location.href;
   var string1 = url.substring(url.lastIndexOf('/') + 1);
@@ -38,86 +38,69 @@ $(document).ready(function () {
         dataType: "json",
         url: host + "/topic/"+topic_id,
         success: function (data) {
+            console.log("TOPIC");
             console.log(data);
             $('#topic-name').text(data.top_name);
             $('#tra_origin_destination').text(data.top_tra_id.tra_origin + " - " + data.top_tra_id.tra_destination);
-            $(data.wallComments).each(function (idx, itm) {
-              $('#wall').append(
-                '<div class="list-group-item missatge">' +
-                '<h4 class = "list-group-item-heading"> ' + itm.com_usr_id + '</h4>' +
-                '<p class = "list-group-item-text"> ' + itm.com_description + ' </p>' +
-                '</div>');
+            $(data.wallComments).each(function (idx, itm) { //list msg
+
+              //AJAX NOM OF CLIENT
+              var user_id = itm.com_usr_id;
+              $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "/user/" + user_id,
+                success: function (data2) {
+                  console.log("USER NAME");
+                  console.log(data2);
+                  $('#wall').append(
+                    '<div class="list-group-item missatge">' +
+                    '<h4 class = "list-group-item-heading"> ' + data2.usr_nickname + '</h4>' +
+                    '<p class = "list-group-item-text"> ' + itm.com_description + ' </p>' +
+                    '</div>');
+                },
+                error: function (err) {
+                  console.log(err);
+                }
+              });
+
+              //END AJAX NOM CLIENT
             });
+
+
+
+
+          $(data.topicProposals).each(function (idx, itm) { //list proposals
+            $('#porposal').append(
+              '<li class="list-group-item">' +
+              '<span class="badge"> ' + 0 + ' </span>' +
+              itm.pro_title +
+              '</li>');
+          });
+          var travel_id = data.top_tra_id.tra_id;
+
+
+          ///AJAX ALL TOPICS OF TRAVE
+          $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: host + "/travel/"+travel_id,
+            success: function (data) {
+              console.log("TRAVEL");
+              console.log(data);
+              $(data.topics).each(function (idx, itm) {
+                $('#topic-list').append('<li><a href="http://discuss.trabel.me/topics/' + itm.top_id + '">' + itm.top_name + '</a></li>');
+              });
+            },
+            error: function (err) {
+              console.log("ERRORS");
+              console.log(err);
+            },
+          });
+          //END AJAX OF TOPICS OF TRAVEL
         },
         error: function (err) {
-            console.log(err);
-        },
-    });
-
-    //GET TOPIC OF TRAVEL
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "",
-        success: function (data) {
-            $(data.topicporposal).each(function (idx, itm) {
-                $('#topic-list').append('<li><a href="http://discuss.trabel.me/topics/' + itm.top_id + '"></a>' + itm.top_name + '</li>');
-            });
-        },
-        error: function (err) {
-            console.log(err);
-        },
-    });
-
-    //GET TRAVEL
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "",
-        success: function (data) {
-
-        },
-        error: function (err) {
-            console.log(err);
-        },
-    });
-
-    //GET MESSAGES
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "",
-        success: function (data) {
-            $(data.wallcomment).each(function (idx, itm) {
-                $('#wall').append(
-                        '<div class="list-group-item missatge">' +
-                        '<h4 class = "list-group-item-heading"> ' + itm.com_usr_id + '</h4>' +
-                        '<p class = "list-group-item-text"> ' + itm.com_description + ' </p>' +
-                        '</div>');
-            });
-            $('#tra_origin_destination').text(tra_origin + " - " + tra_destination);
-        },
-        error: function (err) {
-            console.log(err);
-        },
-    });
-
-    //GET PORPOSALS
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: "",
-        success: function (data) {
-            $(data.topicporposal).each(function (idx, itm) {
-                $('#porposal').append(
-                        '<li class="list-group-item">' +
-                        '<span class="badge"> ' + 0 + ' </span>' +
-                        itm.pro_description +
-                        '</li>');
-            });
-            $('#tra_origin_destination').text(tra_origin + " - " + tra_destination);
-        },
-        error: function (err) {
+            console.log("ERRORS");
             console.log(err);
         },
     });
