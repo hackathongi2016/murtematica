@@ -6,7 +6,8 @@
  */
 
 module.exports = {
-
+  connection: 'mysql',
+  tableName: 'Topic',
   autoCreatedAt: false,
   autoUpdatedAt: false,
   attributes: {
