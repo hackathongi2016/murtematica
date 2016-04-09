@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  connection: 'mysql',
+  //connection: 'mysql',
   attributes: {
     rut_id: {
       type: 'integer',
