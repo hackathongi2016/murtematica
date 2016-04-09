@@ -12,96 +12,65 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
-
-  <!--SCRIPTS-->
-  <script src="libs/jquery/jquery-2.2.0.min.js"></script>
-  <script src="libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-  <script src="libs/knockout/knockout-3.4.0.debug.js"></script>
 </head>
 <body>
-<!--Menu bar-->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
-      <a class="navbar-brand" href="">ORIGIN - DESTINATION</a>
+<!--General menu bar-->
+<nav class="row" style="background-color:#717DC5">
+  <div class="col-xs-2" >
+    <a href="http://www.trabel.me"><img src="https://github.com/hackathongi2016/docs/blob/master/dissenys/Travel_Blanc45px.png?raw=true"/></a>
+  </div>
+  <div class="col-xs-8">
+    <!-- Empty div, columna del mig de la capçalera.-->
+  </div>
+  <div class="col-xs-2 nav-div" >
+    <div class="row">
+      <div class="col-xs-6" style="text-align:center;">
+        <a href="http://search.trabel.me">
+          <span class="glyphicon glyphicon-search" style="color:white;font-size:25px;margin-top:10px;" aria-hidden="true"></span>
+        </a>
+      </div>
+      <!-- Afegir color de la font al bootstrap -->
+      <div class="col-xs-6">
+        <a href="http://auth.trabel.me/login"><img src="https://github.com/hackathongi2016/docs/blob/master/dissenys/boto.login.transparent.png?raw=true"/></a>
+
+        <!--<h4><a style="color:white" href="http://auth.trabel.me/login.php">Log in</a></h4>-->
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Topic selected<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Allotjament</a></li>
-            <li><a href="#">Transport</a></li>
-            <li><a href="#">Activitats</a></li>
-            <li><a href="#">General</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+
   </div>
 </nav>
+<!--Topic menu bar-->
+<a href="http://travel.trabel.me"><h1 class="label label-default" id="tra_origin_destination"></h1></a>
+<ul class="dropdown-right">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Topic selected<span class="caret"></span></a>
+    <ul id="topic-list" class="dropdown-menu">
+      <li><a href="#">Allotjament</a></li>
+      <li><a href="#">Transport</a></li>
+      <li><a href="#">Activitats</a></li>
+      <li><a href="#">General</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
 <!--Main topic panel-->
 <div class="container-fluid contenidor-principal">
   <div class="panel panel-default">
-    <div class="panel-heading">TITLE TOPIC</div>
+    <div id="topic-name" class="panel-heading">TITLE TOPIC</div>
     <div class="panel-body">
       <!--Porposals panel-->
       <div class="col-xs-4">
         <div class="panel panel-default">
           <div class="panel-heading text-center">PORPOSALS</div>
           <div class="panel-body">
-            <!--                                <div class="list-group">
-                                                <div class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-8">
-                                                            <h4>Hotel "el millor"</h4>
-                                                        </div>
-                                                        <div class="col-xs-4 text-right">
-                                                            <button type="button" class="btn btn-default">7 <i class="fa fa-thumbs-o-up"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-8">
-                                                            <h4>Hotel "el segon millor"</h4>
-                                                        </div>
-                                                        <div class="col-xs-4 text-right">
-                                                            <button type="button" class="btn btn-default">2 <i class="fa fa-thumbs-o-up"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>-->
-            <table class="table table-hover">
-              <tbody>
-              <tr>
-                <td>
-                  <div class="row">
-                    <div class="col-xs-8">
-                      <h4>Hotel "el millor"</h4>
-                    </div>
-                    <div class="col-xs-4 text-right">
-                      <button type="button" class="btn btn-default">7 <i class="fa fa-thumbs-o-up"></i></button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="row">
-                    <div class="col-xs-8">
-                      <h4>Hotel "el segon millor"</h4>
-                    </div>
-                    <div class="col-xs-4 text-right">
-                      <button type="button" class="btn btn-default">2 <i class="fa fa-thumbs-o-up"></i></button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-            <button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
+            <ul id="porposal" class="list-group">
+              <li class="list-group-item">
+                <span class="badge">14</span>
+                Cras justo odio
+              </li>
+            </ul>
+            <input id="addPorposal" type="image" src="img/add.png" width="50" height="38">
           </div>
         </div>
       </div>
@@ -110,22 +79,66 @@
         <div class="panel panel-default">
           <div class="panel-heading text-center">WALL</div>
           <div class="panel-body">
-            <div class="list-group">
-              <div class="list-group-item">
+            <div id="wall" class="list-group">
+              <div class="list-group-item missatge">
                 <h4 class="list-group-item-heading">Thyplock</h4>
                 <p class="list-group-item-text">Hoooooo, va ser el millor viatge de la meva vida!!!</p>
               </div>
-              <div class="list-group-item">
-                <h4 class="list-group-item-heading">Jogui22</h4>
-                <p class="list-group-item-text">Vaig coneixer molta gent i hem va agradar molt!!! ;D</p>
-              </div>
             </div>
-            <button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
+            <input id="addMessage" type="image" src="img/add.png" width="50" height="38">
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!--PopUp addMessage-->
+<div id="inputBoxMessage" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">ADD MESSAGE</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Message</label>
+            <input id="messageAdd" class="form-control" type="text">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="submitMessage" type="button" class="btn btn-success" aria-hidden="true"><i class="fa fa-save"></i> Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--PopUp AddPorposal-->
+<div id="inputBoxPorposal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">ADD PORPOSAL</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Proposal</label>
+            <input id="messagePorposal" class="form-control" type="text">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="submitPorposal" type="button" class="btn btn-success" aria-hidden="true"><i class="fa fa-save"></i> Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--SCRIPTS-->
+<script src="libs/jquery/jquery-2.2.0.min.js"></script>
+<script src="libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="js/web.js"></script>
 </body>
 </html>

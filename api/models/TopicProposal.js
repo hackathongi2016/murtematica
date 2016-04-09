@@ -7,6 +7,9 @@
 
 module.exports = {
   connection: 'mysql',
+  tableName: 'TopicProposal',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     pro_id:{
       type: 'integer',

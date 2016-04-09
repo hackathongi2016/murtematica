@@ -7,6 +7,9 @@
 
 module.exports = {
   connection: 'mysql',
+  tableName: 'WallComment',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     com_id: {
       type: 'integer',
@@ -23,7 +26,7 @@ module.exports = {
       model: 'Topic',
       required: true
     },
-    com_user_id: {
+    com_usr_id: {
       model: 'User',
       required: true
     }

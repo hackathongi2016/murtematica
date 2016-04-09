@@ -7,6 +7,9 @@
 
 module.exports = {
   connection: 'mysql',
+  tableName: 'Travel',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     tra_id: {
       type: 'integer',
@@ -67,6 +70,16 @@ module.exports = {
     tra_description: {
       type: 'integer',
       required: false
+    },
+
+    tra_lat: {
+      type: 'float',
+      required: true
+    },
+
+    tra_long: {
+      type: 'float',
+      required: true
     },
 
     //RELATIONS

@@ -7,6 +7,9 @@
 
 module.exports = {
   connection: 'mysql',
+  tableName: 'User',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     usr_id: {
       type: 'integer',
@@ -64,7 +67,7 @@ module.exports = {
 
     wallComments: {
       collection: 'WallComment',
-      via: 'com_user_id'
+      via: 'com_usr_id'
     },
 
     travels: {

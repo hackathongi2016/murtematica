@@ -7,6 +7,10 @@
 
 module.exports = {
   connection: 'mysql',
+  tableName: 'UserTravel',
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
+
   attributes: {
       ust_id: {
         type: 'integer',

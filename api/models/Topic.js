@@ -6,7 +6,9 @@
  */
 
 module.exports = {
-  connection: 'mysql',
+
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     top_id: {
       type: 'integer',
@@ -25,6 +27,7 @@ module.exports = {
       required: true
     },
 
+
     topicProposals: {
       collection: 'TopicProposal',
       via: 'pro_top_id'
@@ -34,8 +37,6 @@ module.exports = {
       collection: 'WallComment',
       via: 'com_top_id'
     }
-
-
   }
 };
 
