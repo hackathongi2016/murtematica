@@ -1,2 +1,131 @@
-<h1><%= data.test %></h1>
-<p>Hello World</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TRAVEL</title>
+
+  <!--META-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+
+  <!--SCRIPTS-->
+  <script src="libs/jquery/jquery-2.2.0.min.js"></script>
+  <script src="libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+  <script src="libs/knockout/knockout-3.4.0.debug.js"></script>
+</head>
+<body>
+<!--Menu bar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"></button>
+      <a class="navbar-brand" href="">ORIGIN - DESTINATION</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >Topic selected<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Allotjament</a></li>
+            <li><a href="#">Transport</a></li>
+            <li><a href="#">Activitats</a></li>
+            <li><a href="#">General</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!--Main topic panel-->
+<div class="container-fluid contenidor-principal">
+  <div class="panel panel-default">
+    <div class="panel-heading">TITLE TOPIC</div>
+    <div class="panel-body">
+      <!--Porposals panel-->
+      <div class="col-xs-4">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">PORPOSALS</div>
+          <div class="panel-body">
+            <!--                                <div class="list-group">
+                                                <div class="list-group-item">
+                                                    <div class="row">
+                                                        <div class="col-xs-8">
+                                                            <h4>Hotel "el millor"</h4>
+                                                        </div>
+                                                        <div class="col-xs-4 text-right">
+                                                            <button type="button" class="btn btn-default">7 <i class="fa fa-thumbs-o-up"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item">
+                                                    <div class="row">
+                                                        <div class="col-xs-8">
+                                                            <h4>Hotel "el segon millor"</h4>
+                                                        </div>
+                                                        <div class="col-xs-4 text-right">
+                                                            <button type="button" class="btn btn-default">2 <i class="fa fa-thumbs-o-up"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+            <table class="table table-hover">
+              <tbody>
+              <tr>
+                <td>
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <h4>Hotel "el millor"</h4>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                      <button type="button" class="btn btn-default">7 <i class="fa fa-thumbs-o-up"></i></button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <h4>Hotel "el segon millor"</h4>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                      <button type="button" class="btn btn-default">2 <i class="fa fa-thumbs-o-up"></i></button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!--Topic wall panel-->
+      <div class="col-xs-8">
+        <div class="panel panel-default">
+          <div class="panel-heading text-center">WALL</div>
+          <div class="panel-body">
+            <div class="list-group">
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading">Thyplock</h4>
+                <p class="list-group-item-text">Hoooooo, va ser el millor viatge de la meva vida!!!</p>
+              </div>
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading">Jogui22</h4>
+                <p class="list-group-item-text">Vaig coneixer molta gent i hem va agradar molt!!! ;D</p>
+              </div>
+            </div>
+            <button type="button" class="btn btn-default"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

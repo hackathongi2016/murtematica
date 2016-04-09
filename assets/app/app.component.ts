@@ -3,8 +3,17 @@
  */
 
 import {Component} from 'angular2/core';
+import {RouteConfig} from "angular2/router";
+import {ROUTER_DIRECTIVES} from "angular2/router";
+import {TopicComponent} from "./topic.component";
 @Component({
   selector: 'my-app',
-  templateUrl: 'web/index.html'
+  template: '<router-outlet></router-outlet>',
+  directives: [ROUTER_DIRECTIVES],
 })
+
+
+@RouteConfig([
+  {path: '/:id', name: 'Topic', component: TopicComponent, useAsDefault: true},
+])
 export class AppComponent { }

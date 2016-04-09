@@ -33,16 +33,13 @@ module.exports.routes = {
   ***************************************************************************/
 
 
-  'GET /': {view: 'main'},
-/*
-  '/': {
-    view: 'homepage'
-  },
+  //'GET /topics': {view: 'main'},
+
   'GET /topics/:id' : {
     controller: 'TopicController',
     action: 'index'
   },
-*/
+
 
   /***************************************************************************
   *                                                                          *

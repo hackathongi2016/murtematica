@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  //connection: 'mysql',
+  connection: 'mysql',
   attributes: {
     com_id: {
       type: 'integer',

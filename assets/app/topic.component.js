@@ -1,7 +1,4 @@
-/**
- * Created by Llorenç on 09/04/2016.
- */
-System.register(['angular2/core', "angular2/router", "./topic.component"], function(exports_1, context_1) {
+System.register(['angular2/core', "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -13,8 +10,8 @@ System.register(['angular2/core', "angular2/router", "./topic.component"], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2, topic_component_1;
-    var AppComponent;
+    var core_1, router_1, router_2;
+    var TopicComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -23,29 +20,27 @@ System.register(['angular2/core', "angular2/router", "./topic.component"], funct
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
-            },
-            function (topic_component_1_1) {
-                topic_component_1 = topic_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            TopicComponent = (function () {
+                function TopicComponent(_router, _routeParams) {
+                    this._router = _router;
+                    this._routeParams = _routeParams;
                 }
-                AppComponent = __decorate([
+                TopicComponent.prototype.ngOnInit = function () {
+                    this.id = this._routeParams.get('id');
+                };
+                TopicComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<router-outlet></router-outlet>',
-                        directives: [router_2.ROUTER_DIRECTIVES],
-                    }),
-                    router_1.RouteConfig([
-                        { path: '/:id', name: 'Topic', component: topic_component_1.TopicComponent, useAsDefault: true },
-                    ]), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                        selector: 'topic',
+                        templateUrl: 'web/index.html'
+                    }), 
+                    __metadata('design:paramtypes', [router_1.Router, router_2.RouteParams])
+                ], TopicComponent);
+                return TopicComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("TopicComponent", TopicComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=topic.component.js.map
